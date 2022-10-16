@@ -53,7 +53,6 @@ SIMMOD3 <-'
         F3 =~ 0.1*F4
        '
 
-
 # Simulate the data based on the entered model.
 
 # Set seed to ensure reproducibility
