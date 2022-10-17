@@ -1,9 +1,15 @@
-################################################
-## Data Simulation for CFA                    ##
-##                                            ##
-## Based on method by Rocabado et al. (2020)  ##
-## in https://doi.org/10.1039/D0RP00025F      ##
-################################################
+################################################################################
+## DATA SIMULATION FOR CFA                                                    ##
+##                                                                            ##
+## Based on method by Rocabado et al. (2020) in                               ##
+## https://doi.org/10.1039/D0RP00025F                                         ##
+################################################################################
+
+## Author: Jeffrey R. Raker, Ph.D.
+## Released: 2022
+## Last Updated: 2022-10-17
+
+################################################################################
 
 # Install "simstandard" package and dependencies if needed.
 # Load "simstandard" package
