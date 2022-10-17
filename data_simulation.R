@@ -1,5 +1,5 @@
 ################################################################################
-## DATA SIMULATION FOR CFA                                                    ##
+## DATA SIMULATION FOR DEMO CFA ANALYSIS                                      ##
 ##                                                                            ##
 ## Based on method by Rocabado et al. (2020) in                               ##
 ## https://doi.org/10.1039/D0RP00025F                                         ##
