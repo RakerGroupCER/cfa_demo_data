@@ -80,24 +80,35 @@ SIMMOD3 <-'
 
 ################################################################################
 
-# Simulate the data based on the entered model.
+### THIS SECTION CREATES SIMULATED DATA BASED ON DEFINED MODEL(S) ###
 
-# Set seed to ensure reproducibility
+## Set seed to ensure reproducibility of simulated data
+# Update number for new studies to ensure unique data is generated
 set.seed(119978)
 
-# Create data for three groups
-my.data.grp1 <- sim_standardized(SIMMOD1, n = 1000, observed = T, latent = F, errors = F)
-my.data.grp2 <- sim_standardized(SIMMOD2, n = 1000, observed = T, latent = F, errors = F)
-my.data.grp3 <- sim_standardized(SIMMOD3, n = 1000, observed = T, latent = F, errors = F)
+## Create data for three groups
+my.data.grp1 <- sim_standardized(SIMMOD1, n = 1000, observed = T, 
+                                 latent = F, errors = F)
 
-# Adjust means for several items
+my.data.grp2 <- sim_standardized(SIMMOD2, n = 1000, observed = T, 
+                                 latent = F, errors = F)
+
+my.data.grp3 <- sim_standardized(SIMMOD3, n = 1000, observed = T, 
+                                 latent = F, errors = F)
+
+## Adjust means for several items to introduce "realness" into data set
 my.data.grp1$Q4 <- my.data.grp1$Q4 - 1
 my.data.grp1$Q12 <- my.data.grp1$Q12 + 1
 my.data.grp1$Q9 <- my.data.grp1$Q9 + 2
 my.data.grp2$Q15 <- my.data.grp2$Q15 + 1
 my.data.grp2$Q5 <- my.data.grp2$Q5 - 2
 
-# Transform data from continuous to ordinal
+################################################################################
+
+### THIS SECTION TRANSFORMS DATA FROM CONTINUOUS TO ORDINAL ###
+
+## Transform data from continuous to five-level Likert-type scale (ordinal)
+## for each of the three groups
 grp1.ord <- my.data.grp1
 grp1.ord$Q1 <- as.numeric(cut(my.data.grp1$Q1, breaks = 5))
 grp1.ord$Q2 <- as.numeric(cut(my.data.grp1$Q2, breaks = 5))
@@ -152,13 +163,22 @@ grp3.ord$Q14 <- as.numeric(cut(my.data.grp3$Q14, breaks = 5))
 grp3.ord$Q15 <- as.numeric(cut(my.data.grp3$Q15, breaks = 5))
 grp3.ord$Q16 <- as.numeric(cut(my.data.grp3$Q16, breaks = 5))
 
-# Add grouping variable to each data set
+################################################################################
+
+### THIS SECTION ADDS A GROUPING VARIABLE TO EACH DATA SET ###
 grp1.ord$group <- "1"
 grp2.ord$group <- "2"
 grp3.ord$group <- "3"
 
-# Combine data sets
+################################################################################
+
+### THIS SECTION CONBINES THE THREE SETS OF DATA INTO ONE DATA SET ###
 my.data.combined <- rbind(grp1.ord, grp2.ord, grp3.ord)
 
-# Export the data set for use in other projects
-write.xlsx(my.data.combined, file = "mydatacombined.xlsx", sheetName = "data", append = FALSE)
+################################################################################
+
+### THIS SECTION EXPORTS THE DATA SET TO AN EXCEL FILE ###
+write.xlsx(my.data.combined, file = "mydatacombined.xlsx", 
+           sheetName = "data", append = FALSE)
+
+################################################################################
