@@ -11,9 +11,19 @@
 
 ################################################################################
 
-# Install "simstandard" package and dependencies if needed.
-# Load "simstandard" package
+### THIS SECTION IS FOR LOADIN NECESSARY PACKAGES ###
+
+## Install packages (and dependencies) if necessary
+# install.packages("simstandard", dependencies = TRUE)
+# install.packages("xlsx", dependencies = TRUE)
+
+## The "simstandard" package is used to simulate data.
 library(simstandard)
+
+## The "xlsx" package is used to export simulated data to an Excel file type.
+library (xlsx)
+
+################################################################################
 
 # Create a "prototypical" model for the data.
 
@@ -140,8 +150,4 @@ grp3.ord$group <- "3"
 my.data.combined <- rbind(grp1.ord, grp2.ord, grp3.ord)
 
 # Export the data set for use in other projects
-# Install "xlsx" package and dependencies if needed.
-# Load "xlsx" package
-library(xlsx)
-
 write.xlsx(my.data.combined, file = "mydatacombined.xlsx", sheetName = "data", append = FALSE)
