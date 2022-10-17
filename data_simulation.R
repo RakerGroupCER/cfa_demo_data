@@ -11,7 +11,7 @@
 
 ################################################################################
 
-### THIS SECTION IS FOR LOADIN NECESSARY PACKAGES ###
+### THIS SECTION IS FOR LOADING NECESSARY PACKAGES ###
 
 ## Install packages (and dependencies) if necessary
 # install.packages("simstandard", dependencies = TRUE)
@@ -25,9 +25,12 @@ library (xlsx)
 
 ################################################################################
 
-# Create a "prototypical" model for the data.
+### THIS SECTION CREATES PROTOTYICAL MODELS FOR DATA SIMULATION ###
 
-# Four Factor Model with Four Items per Factor for Three Groups
+## Each model has four factors with four items per factor.
+
+## Model 1: All items have the same factor loadings with varied
+##          correlations between factors.
 SIMMOD1 <-'
         F1 =~ 0.8*Q1 + 0.8*Q2 + 0.8*Q3 + 0.8*Q4
         F2 =~ 0.8*Q5 + 0.8*Q6 + 0.8*Q7 + 0.8*Q8
@@ -41,6 +44,9 @@ SIMMOD1 <-'
         F2 =~ 0.3*F4
         F3 =~ 0.2*F4
        '
+
+## Model 2: Factor loadings are varied compared to Model 1 with the same
+##          correlations between factors as Model 1.
 SIMMOD2 <-'
         F1 =~ 0.8*Q1 + 0.75*Q2 + 0.8*Q3 + 0.8*Q4
         F2 =~ 0.8*Q5 + 0.8*Q6 + 0.75*Q7 + 0.8*Q8
@@ -55,6 +61,9 @@ SIMMOD2 <-'
         F3 =~ 0.2*F4
        '
 
+## Model 3: Factor loadings are further varied compared to Model 1 with
+##          additionally varied correlations between factors compared 
+##          to Model 1.
 SIMMOD3 <-'
         F1 =~ 0.5*Q1 + 0.8*Q2 + 0.8*Q3 + 0.8*Q4
         F2 =~ 0.5*Q5 + 0.8*Q6 + 0.8*Q7 + 0.8*Q8
@@ -68,6 +77,8 @@ SIMMOD3 <-'
         F2 =~ 0.2*F4
         F3 =~ 0.1*F4
        '
+
+################################################################################
 
 # Simulate the data based on the entered model.
 
